@@ -13,15 +13,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swissknife.Tests", "tests\S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiffieHellman", "DiffieHellman", "{BC45E83B-795B-493A-B90D-3CD5F1FF3309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DH.Server", "src\DiffieHellman\DH.Server\DH.Server.csproj", "{3CB4E01F-FD1E-494E-8E1D-22B98181244B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DH.Server", "src\DiffieHellman\DH.Server\DH.Server.csproj", "{3CB4E01F-FD1E-494E-8E1D-22B98181244B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DH.Core", "src\DiffieHellman\DH.Core\DH.Core.csproj", "{F6B84ECC-CD1F-4BAC-A365-480929D8ADEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DH.Core", "src\DiffieHellman\DH.Core\DH.Core.csproj", "{F6B84ECC-CD1F-4BAC-A365-480929D8ADEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DH.ConsoleApp", "src\DiffieHellman\DH.ConsoleApp\DH.ConsoleApp.csproj", "{35074C29-0E91-4EA6-B02E-C42DA18C0E6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DH.ConsoleApp", "src\DiffieHellman\DH.ConsoleApp\DH.ConsoleApp.csproj", "{35074C29-0E91-4EA6-B02E-C42DA18C0E6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DH.Client2", "src\DiffieHellman\DH.Client2\DH.Client2.csproj", "{879C1FFA-7A53-4927-89D3-954117437DA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DH.Client2", "src\DiffieHellman\DH.Client2\DH.Client2.csproj", "{879C1FFA-7A53-4927-89D3-954117437DA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DH.Client1", "src\DiffieHellman\DH.Client1\DH.Client1.csproj", "{C2DF5628-564C-469A-8851-2534E3289C3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DH.Client1", "src\DiffieHellman\DH.Client1\DH.Client1.csproj", "{C2DF5628-564C-469A-8851-2534E3289C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Executor", "src\Executor\Executor.csproj", "{E0CEB3AD-4E60-4A58-B6D7-D1E7E44C804D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Executor.Tests", "tests\Executor.Tests\Executor.Tests.csproj", "{80784A76-BBD8-4123-9BFC-3E58DC08657F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{C2DF5628-564C-469A-8851-2534E3289C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2DF5628-564C-469A-8851-2534E3289C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2DF5628-564C-469A-8851-2534E3289C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0CEB3AD-4E60-4A58-B6D7-D1E7E44C804D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0CEB3AD-4E60-4A58-B6D7-D1E7E44C804D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0CEB3AD-4E60-4A58-B6D7-D1E7E44C804D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0CEB3AD-4E60-4A58-B6D7-D1E7E44C804D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80784A76-BBD8-4123-9BFC-3E58DC08657F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80784A76-BBD8-4123-9BFC-3E58DC08657F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80784A76-BBD8-4123-9BFC-3E58DC08657F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80784A76-BBD8-4123-9BFC-3E58DC08657F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +82,8 @@ Global
 		{35074C29-0E91-4EA6-B02E-C42DA18C0E6C} = {BC45E83B-795B-493A-B90D-3CD5F1FF3309}
 		{879C1FFA-7A53-4927-89D3-954117437DA7} = {BC45E83B-795B-493A-B90D-3CD5F1FF3309}
 		{C2DF5628-564C-469A-8851-2534E3289C3C} = {BC45E83B-795B-493A-B90D-3CD5F1FF3309}
+		{E0CEB3AD-4E60-4A58-B6D7-D1E7E44C804D} = {3C4C8084-DAE8-45C8-8FD9-DA987BCAF183}
+		{80784A76-BBD8-4123-9BFC-3E58DC08657F} = {D6A346DE-0BA5-449E-A3AE-247C90A1A31A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {74040D27-7962-4A25-A2E9-35F6EFE92F14}
