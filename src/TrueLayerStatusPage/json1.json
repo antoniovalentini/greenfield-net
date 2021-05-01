@@ -1,0 +1,261 @@
+{
+  "status": "ok",
+  "results": [
+    {
+      "timestamp": "2021-02-10T20:00:00.0000000",
+      "providers": [
+        {
+          "provider_id": "xs2a-redsys-bankia",
+          "endpoints": [
+            {
+              "endpoint": "accounts",
+              "latency_percentiles": {
+                "95": 76.0,
+                "50": 76.0,
+                "75": 76.0,
+                "90": 76.0,
+                "99": 76.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "accounts/balance",
+              "latency_percentiles": {
+                "95": 1591.0,
+                "50": 1591.0,
+                "90": 1591.0,
+                "99": 1591.0,
+                "75": 1591.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "accounts/transactions",
+              "latency_percentiles": {
+                "50": 2008.0,
+                "99": 3338.12,
+                "75": 2211.5,
+                "95": 2439.6,
+                "90": 2367.2
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "info",
+              "latency_percentiles": {
+                "95": 44.0,
+                "50": 44.0,
+                "75": 44.0,
+                "90": 44.0,
+                "99": 44.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            }
+          ],
+          "availability": 100.0,
+          "provider_error": 0.0,
+          "truelayer_error": 0.0
+        },
+        {
+          "provider_id": "xs2a-redsys-caixabank",
+          "endpoints": [
+            {
+              "endpoint": "accounts",
+              "latency_percentiles": {
+                "99": 84.0,
+                "95": 79.0,
+                "50": 61.0,
+                "90": 77.7,
+                "75": 68.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "accounts/balance",
+              "latency_percentiles": {
+                "75": 1640.5,
+                "90": 1826.4,
+                "50": 1481.0,
+                "99": 2353.76,
+                "95": 2056.7
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "accounts/transactions",
+              "latency_percentiles": {
+                "75": 2085.5,
+                "50": 1838.0,
+                "95": 4016.05,
+                "90": 3556.2,
+                "99": 19716.28
+              },
+              "availability": 91.156462585034,
+              "provider_error": 8.843537414965986,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "info",
+              "latency_percentiles": {
+                "95": 69.0,
+                "99": 74.0,
+                "90": 63.0,
+                "75": 55.0,
+                "50": 48.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            }
+          ],
+          "availability": 96.875,
+          "provider_error": 3.125,
+          "truelayer_error": 0.0
+        }
+      ],
+      "availability": 97.48062015503876,
+      "provider_error": 2.5193798449612403,
+      "truelayer_error": 0.0
+    },
+    {
+      "timestamp": "2021-02-10T21:00:00.0000000",
+      "providers": [
+        {
+          "provider_id": "xs2a-redsys-bankia",
+          "endpoints": [
+            {
+              "endpoint": "accounts",
+              "latency_percentiles": {
+                "75": 60.0,
+                "90": 60.0,
+                "99": 60.0,
+                "95": 60.0,
+                "50": 60.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "accounts/balance",
+              "latency_percentiles": {
+                "90": 1396.0,
+                "99": 1396.0,
+                "75": 1396.0,
+                "50": 1396.0,
+                "95": 1396.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "accounts/transactions",
+              "latency_percentiles": {
+                "75": 3616.0,
+                "90": 4317.7,
+                "99": 4426.0,
+                "50": 2994.0,
+                "95": 4426.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "info",
+              "latency_percentiles": {
+                "99": 45.0,
+                "50": 45.0,
+                "95": 45.0,
+                "75": 45.0,
+                "90": 45.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            }
+          ],
+          "availability": 100.0,
+          "provider_error": 0.0,
+          "truelayer_error": 0.0
+        },
+        {
+          "provider_id": "xs2a-redsys-caixabank",
+          "endpoints": [
+            {
+              "endpoint": "accounts",
+              "latency_percentiles": {
+                "95": 77.75,
+                "75": 65.75,
+                "90": 73.0,
+                "50": 60.0,
+                "99": 140.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "accounts/balance",
+              "latency_percentiles": {
+                "50": 1486.0,
+                "95": 1879.15,
+                "90": 1786.2,
+                "75": 1632.25,
+                "99": 8331.04
+              },
+              "availability": 98.20359281437126,
+              "provider_error": 1.7964071856287425,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "info",
+              "latency_percentiles": {
+                "90": 64.2,
+                "95": 67.9,
+                "75": 57.0,
+                "50": 49.5,
+                "99": 76.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            },
+            {
+              "endpoint": "internal/delete",
+              "latency_percentiles": {
+                "75": 29.0,
+                "90": 29.0,
+                "99": 29.0,
+                "50": 29.0,
+                "95": 29.0
+              },
+              "availability": 100.0,
+              "provider_error": 0.0,
+              "truelayer_error": 0.0
+            }
+          ],
+          "availability": 98.78542510121457,
+          "provider_error": 1.214574898785425,
+          "truelayer_error": 0.0
+        }
+      ],
+      "availability": 98.83720930232558,
+      "provider_error": 1.1627906976744187,
+      "truelayer_error": 0.0
+    }
+  ]
+}
