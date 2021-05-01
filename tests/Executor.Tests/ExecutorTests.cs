@@ -48,5 +48,22 @@ namespace Executor.Tests
 
             Assert.NotNull(result);
         }
+
+        [Fact]
+        public void ShouldCatchExceptions()
+        {
+            var catched = false;
+            var result = new Executor<int>(5)
+                .Then(a => "empty")
+                .Then(b => DateTime.Now)
+                .Then(() => throw new Exception("test-ex"))
+                .Then(() => 123)
+                .Then(d => d + 1)
+                .Catch(ex => catched = true);
+
+            _output.WriteLine(result.Value.ToString());
+
+            Assert.True(catched);
+        }
     }
 }

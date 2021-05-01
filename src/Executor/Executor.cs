@@ -7,10 +7,9 @@ namespace Executor
         private Exception _ex;
         public T Value { get; }
 
-        public Executor(T arg = default(T))
-        {
-            Value = arg;
-        }
+        public Executor(T arg = default) => Value = arg;
+
+        public Executor(Exception ex) => _ex = ex;
 
         public Executor<T> Then(Action task)
         {
@@ -23,7 +22,7 @@ namespace Executor
             {
                 Console.WriteLine("Caught Exception. Chain interrupted.");
                 _ex = e;
-                return null;
+                return this;
             }
 
             return new Executor<T>(Value);
@@ -31,12 +30,29 @@ namespace Executor
 
         public Executor<TConverted> Then<TConverted>(Func<T, TConverted> task)
         {
-            if (_ex != null) return new Executor<TConverted>();
+            if (_ex != null) return new Executor<TConverted>(_ex);
             TConverted converted;
             try
             {
                 converted = task(Value);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Caught Exception. Chain interrupted.");
+                _ex = e;
+                return null;
+            }
 
+            return new Executor<TConverted>(converted);
+        }
+
+        public Executor<TConverted> Then<TConverted>(Func<TConverted> task)
+        {
+            if (_ex != null) return new Executor<TConverted>(_ex);
+            TConverted converted;
+            try
+            {
+                converted = task();
             }
             catch (Exception e)
             {
