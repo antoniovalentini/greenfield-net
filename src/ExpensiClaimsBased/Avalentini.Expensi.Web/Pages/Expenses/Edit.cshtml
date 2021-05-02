@@ -1,0 +1,39 @@
+﻿@page
+@model Avalentini.Expensi.Web.Pages.Expenses.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            @Html.HiddenFor(m => m.Expense.Id)
+            <div class="form-group">
+                <label asp-for="Expense.What"></label>
+                <input asp-for="Expense.What" class="form-control" />
+                <span asp-validation-for="Expense.What" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.Amount"></label>
+                <input asp-for="Expense.Amount" class="form-control" type="number" />
+                <span asp-validation-for="Expense.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.Where"></label>
+                <input asp-for="Expense.Where" class="form-control" />
+                <span asp-validation-for="Expense.Where" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expense.When"></label>
+                <input asp-for="Expense.When" class="form-control" />
+                <span asp-validation-for="Expense.When" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+    <div class="col-md-8">
+    </div>
+</div>

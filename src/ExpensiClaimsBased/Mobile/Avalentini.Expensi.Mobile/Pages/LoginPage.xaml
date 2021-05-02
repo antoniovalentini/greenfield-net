@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Avalentini.Expensi.Mobile.Pages.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="10" Padding="10" HorizontalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="Start">
+                <Label Text="Login to your portal" FontSize="Large" HorizontalTextAlignment="Center"/>
+                <Frame
+                    BackgroundColor="Blue"
+                    CornerRadius="5"
+                    Padding="0">
+                    <StackLayout x:Name="FormLayout" BackgroundColor="LightGray" Padding="10" Spacing="10" HorizontalOptions="FillAndExpand">
+                        <Label Text="Username" FontAttributes="Bold" />
+                        <Entry Text="{Binding Username}" Placeholder="Username..." x:Name="UserName"/>
+                        <Label Text="Password" FontAttributes="Bold" />
+                        <Entry Text="{Binding Password}" IsPassword="True" x:Name="Password"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button Text="LOGIN" TextColor="White" BackgroundColor="#5CB85C" Clicked="LoginClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

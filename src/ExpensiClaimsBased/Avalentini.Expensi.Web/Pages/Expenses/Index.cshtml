@@ -1,0 +1,54 @@
+﻿@page
+@model Avalentini.Expensi.Web.Pages.Expenses.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Expenses</h1>
+
+@if (Model.HasMessage)
+{
+    <div class="alert alert-success" role="alert">
+        @Model.Message
+    </div>
+}
+
+<p>
+    <a asp-page="Create" class="btn btn-outline-secondary">Insert new expense</a>
+</p>
+
+@if (Model.HasExpenses)
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Expenses[0].What)</th>
+            <th>@Html.DisplayNameFor(m => m.Expenses[0].Amount)</th>
+            <th>@Html.DisplayNameFor(m => m.Expenses[0].Where)</th>
+            <th>@Html.DisplayNameFor(m => m.Expenses[0].When)</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var e in Model.Expenses)
+        {
+            <tr>
+                <td>@e.What</td>
+                <td>@e.Amount</td>
+                <td>@e.Where</td>
+                <td>@e.When</td>
+                <td class="form-inline">
+                    <a asp-page="Edit" asp-route-id="@e.Id" class="btn btn-outline-secondary btn-sm list-inline-item" role="button">Edit</a>
+                    <form method="post" class="form-inline">
+                        <button asp-page-handler="Delete" asp-route-id="@e.Id" class="btn btn-outline-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Expenses for now!</p>
+}

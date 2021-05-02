@@ -1,0 +1,33 @@
+﻿@page
+@model Avalentini.Expensi.Web.Pages.Identity.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Current Identity</h1>
+
+@if (Model.HasClaims)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Claims[0].Type)</th>
+                <th>@Html.DisplayNameFor(m => m.Claims[0].Value)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var e in Model.Claims)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => e.Type)</td>
+                    <td>@Html.DisplayFor(m => e.Value)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Identity found!</p>
+}
+
