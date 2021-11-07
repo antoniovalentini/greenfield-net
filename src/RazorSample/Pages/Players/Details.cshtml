@@ -1,0 +1,37 @@
+@page
+@model RazorSample.Pages.Players.Details
+
+@{
+    ViewData["Title"] = "Player details";
+}
+
+<h3>@Model.Player.Name</h3>
+<p class="small">@Model.Player.Tag</p>
+
+<ul class="list-group list-group-horizontal justify-content-center mb-4">
+    <li class="list-group-item">Level: @Model.Player.ExpLevel</li>
+    <li class="list-group-item">Trophies: @Model.Player.Trophies</li>
+    <li class="list-group-item">Arena: @Model.Player.Arena.Name</li>
+</ul>
+
+<div class="accordion m-5" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Current Deck
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="d-flex justify-content-center" style="flex-wrap: wrap;">
+                    @foreach (var card in Model.Player.CurrentDeck)
+                    {
+                        <div class="card border-0 p-3" style="flex: 25%;">
+                            <img src="@card.IconUrls.Medium" class="card-img-top" alt="...">
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

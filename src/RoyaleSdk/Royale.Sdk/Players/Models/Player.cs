@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Royale.Sdk.Clans.Models;
 
 namespace Royale.Sdk.Players.Models
@@ -23,5 +24,17 @@ namespace Royale.Sdk.Players.Models
         int WarDayWins,
         int ClanCardsCollected,
         Clan Clan,
-        Arena Arena);
+        Arena Arena,
+        IEnumerable<Card> CurrentDeck);
+
+    public record Card(
+        string Name,
+        int Id,
+        int Level,
+        int StarLevel,
+        int MaxLevel,
+        int Count,
+        IconUrls IconUrls);
+
+    public record IconUrls(string Medium);
 }
