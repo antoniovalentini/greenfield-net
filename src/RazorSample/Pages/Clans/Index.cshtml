@@ -7,12 +7,14 @@
 
 @if (Model.Error is { Length: >0 })
 {
-    <h3>ERROR: @Model.Error</h3>
+    <div class="alert alert-danger" role="alert">
+        @Model.Error
+    </div>
 }
 
 @if (Model.Clan is null)
 {
-    <form method="post" class="row row-cols-lg-auto g-3 align-items-center">
+    <form class="row row-cols-lg-auto g-3 align-items-center">
         <div class="col-12">
             <label class="visually-hidden" for="clanTag">Clan Tag</label>
             <input type="text" class="form-control" id="clanTag" name="clanTag" placeholder="Clan Tag">
@@ -29,9 +31,10 @@ else
     <p class="lead">
         @Model.Clan.Description
     </p>
-    <ul>
-        <li>@nameof(Model.Clan.Members): @Model.Clan.Members</li>
-        <li>@nameof(Model.Clan.ClanScore): @Model.Clan.ClanScore</li>
-        <li>@nameof(Model.Clan.ClanWarTrophies): @Model.Clan.ClanWarTrophies</li>
+
+    <ul class="list-group list-group-horizontal">
+        <li class="list-group-item">Members: @Model.Clan.Members</li>
+        <li class="list-group-item">Score: @Model.Clan.ClanScore</li>
+        <li class="list-group-item">Trophies: @Model.Clan.ClanWarTrophies</li>
     </ul>
 }

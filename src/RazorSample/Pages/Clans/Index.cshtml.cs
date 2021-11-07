@@ -32,7 +32,7 @@ namespace RazorSample.Pages.Clans
             _cache = cache;
         }
 
-        public async Task OnPost(string clanTag)
+        public async Task OnGet(string clanTag)
         {
             if (!string.IsNullOrWhiteSpace(Error) || string.IsNullOrWhiteSpace(clanTag))
             {
