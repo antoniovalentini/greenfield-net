@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Royale.Sdk.Extensions;
 
 namespace RazorSample
 {
@@ -9,7 +10,10 @@ namespace RazorSample
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages().AddRazorRuntimeCompilation();
+            services
+                .AddRoyaleSdk()
+                .AddRazorPages()
+                .AddRazorRuntimeCompilation();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

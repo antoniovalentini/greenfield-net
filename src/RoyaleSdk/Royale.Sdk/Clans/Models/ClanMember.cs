@@ -1,25 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace RazorSample.Pages.Clans.Models
+namespace Royale.Sdk.Clans.Models
 {
-    public record Clan(string Tag, string Name, string Type, string Description, long BadgeId,
-        long ClanScore,
-        long ClanWarTrophies,
-        Location Location,
-        long RequiredTrophies,
-        long DonationsPerWeek,
-        string ClanChestStatus,
-        int ClanChestLevel,
-        int ClanChestMaxLevel,
-        int Members,
-        IEnumerable<ClanMember> MemberList);
-
-    public record Location(long Id, string Name, bool IsCountry, string CountryCode);
-
     public record ClanMember(
         string Tag,
         string Name,
@@ -33,8 +18,6 @@ namespace RazorSample.Pages.Clans.Models
         int Donations,
         int DonationsReceived,
         int ClanChestPoints);
-
-    public record Arena(long Id, string Name);
 
     public class DateTimeConverterRoyale : JsonConverter<DateTime>
     {
