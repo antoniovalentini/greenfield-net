@@ -1,0 +1,35 @@
+@page
+@model RazorSample.Pages.Clans.Index
+
+@{
+    ViewData["Title"] = "Clans";
+}
+
+@if (Model.Error is { Length: >0 })
+{
+    <h3>ERROR: @Model.Error</h3>
+}
+
+@if (Model.Clan is null)
+{
+    <form method="post" class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+            <label class="visually-hidden" for="clanTag">Clan Tag</label>
+            <input type="text" class="form-control" id="clanTag" name="clanTag" placeholder="Clan Tag">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+}
+else
+{
+    <h4>@Model.Clan.Name</h4>
+    <ul>
+        <li>@nameof(Model.Clan.Members): @Model.Clan.Members</li>
+        <li>@nameof(Model.Clan.ClanScore): @Model.Clan.ClanScore</li>
+        <li>@nameof(Model.Clan.ClanWarTrophies): @Model.Clan.ClanWarTrophies</li>
+        <li>@nameof(Model.Clan.Description): @Model.Clan.Description</li>
+    </ul>
+}
