@@ -1,11 +1,8 @@
 using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Configuration;
 using Royale.Sdk.Clans.Models;
 
 namespace Royale.Sdk.Clans
@@ -13,19 +10,15 @@ namespace Royale.Sdk.Clans
     public class ClansApi : IClansApi
     {
         private const string CachePrefix = "CLAN_";
+        private const string ApiPath = "clans/";
         private readonly IMemoryCache _cache;
-        private readonly JsonSerializerOptions _jsonOptions = new() {PropertyNamingPolicy = JsonNamingPolicy.CamelCase};
-        private readonly string _token;
+        private readonly IApiClient _apiClient;
+        private readonly JsonSerializerOptions _jsonOptions = SdkSerializerOptions.JsonOptions;
 
-        public ClansApi(IConfiguration config, IMemoryCache cache)
+        public ClansApi(IMemoryCache cache, IApiClient apiClient)
         {
-            _token = config["ApiToken"];
-            if (string.IsNullOrWhiteSpace(_token))
-            {
-                throw new RoyaleSdkException("Api Token not found. Please define an 'ApiToken' property in the appsettings.json.");
-            }
-
             _cache = cache;
+            _apiClient = apiClient;
         }
 
         public async Task<Clan> GetClan(string clanTag)
@@ -37,25 +30,13 @@ namespace Royale.Sdk.Clans
                 return JsonSerializer.Deserialize<Clan>((string)cached, _jsonOptions);
             }
 
-            using var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://api.clashroyale.com/v1/clans/")
-            };
-
             var decodedClanTag = clanTag.StartsWith("#") ? UrlEncoder.Default.Encode(clanTag) : $"%23{clanTag}";
 
-            var request = new HttpRequestMessage(HttpMethod.Get, decodedClanTag);
-            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-            var response = await httpClient.SendAsync(request);
-            var content = await response.Content.ReadAsStringAsync();
+            var clan = await _apiClient.GetAsync<Clan>(ApiPath + decodedClanTag);
 
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new RoyaleSdkNetworkException(content, response.StatusCode);
-            }
+            _cache.Set(CachePrefix + clanTag, JsonSerializer.Serialize(clan, _jsonOptions));
 
-            _cache.Set(CachePrefix + clanTag, content);
-            return JsonSerializer.Deserialize<Clan>(content, _jsonOptions);
+            return clan;
         }
     }
 }
