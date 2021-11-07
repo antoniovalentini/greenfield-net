@@ -26,10 +26,12 @@
 else
 {
     <h4>@Model.Clan.Name</h4>
+    <p class="lead">
+        @Model.Clan.Description
+    </p>
     <ul>
         <li>@nameof(Model.Clan.Members): @Model.Clan.Members</li>
         <li>@nameof(Model.Clan.ClanScore): @Model.Clan.ClanScore</li>
         <li>@nameof(Model.Clan.ClanWarTrophies): @Model.Clan.ClanWarTrophies</li>
-        <li>@nameof(Model.Clan.Description): @Model.Clan.Description</li>
     </ul>
 }
