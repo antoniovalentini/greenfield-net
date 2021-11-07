@@ -63,7 +63,13 @@ else
                         @foreach (var member in Model.Clan.MemberList)
                         {
                             <tr>
-                                <th scope="row">@member.Name</th>
+                                <th scope="row">
+                                    <a asp-page="/Players/Details"
+                                       asp-route-playerTag="@member.Tag"
+                                       target="_blank">
+                                        @member.Name
+                                    </a>
+                                </th>
                                 <td>@member.Role</td>
                                 <td>@member.Trophies</td>
                                 <td>@member.Donations</td>
