@@ -53,6 +53,7 @@ else
                     <table class="table table-sm">
                         <thead>
                         <tr>
+                            <th scope="col">#</th>
                             <th scope="col">@nameof(ClanMember.Name)</th>
                             <th scope="col">@nameof(ClanMember.Role)</th>
                             <th scope="col">@nameof(ClanMember.Trophies)</th>
@@ -60,16 +61,20 @@ else
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach (var member in Model.Clan.MemberList)
+                        @for (var i=0; i<Model.Clan.MemberList.Count(); i++)
                         {
+                            var member = Model.Clan.MemberList[i];
                             <tr>
                                 <th scope="row">
+                                    @(i+1)
+                                </th>
+                                <td>
                                     <a asp-page="/Players/Details"
                                        asp-route-playerTag="@member.Tag"
                                        target="_blank">
                                         @member.Name
                                     </a>
-                                </th>
+                                </td>
                                 <td>@member.Role</td>
                                 <td>@member.Trophies</td>
                                 <td>@member.Donations</td>

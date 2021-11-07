@@ -12,5 +12,5 @@ namespace Royale.Sdk.Clans.Models
         int ClanChestLevel,
         int ClanChestMaxLevel,
         int Members,
-        IEnumerable<ClanMember> MemberList);
+        ClanMember[] MemberList);
 }
