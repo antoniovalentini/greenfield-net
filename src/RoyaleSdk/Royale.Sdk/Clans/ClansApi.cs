@@ -12,6 +12,7 @@ namespace Royale.Sdk.Clans
 {
     public class ClansApi : IClansApi
     {
+        private const string CachePrefix = "CLAN_";
         private readonly IMemoryCache _cache;
         private readonly JsonSerializerOptions _jsonOptions = new() {PropertyNamingPolicy = JsonNamingPolicy.CamelCase};
         private readonly string _token;
@@ -31,7 +32,7 @@ namespace Royale.Sdk.Clans
         {
             if (clanTag == null) throw new ArgumentNullException(nameof(clanTag));
 
-            if (_cache.TryGetValue(clanTag, out var cached))
+            if (_cache.TryGetValue(CachePrefix + clanTag, out var cached))
             {
                 return JsonSerializer.Deserialize<Clan>((string)cached, _jsonOptions);
             }
@@ -53,7 +54,7 @@ namespace Royale.Sdk.Clans
                 throw new RoyaleSdkNetworkException(content, response.StatusCode);
             }
 
-            _cache.Set(clanTag, content);
+            _cache.Set(CachePrefix + clanTag, content);
             return JsonSerializer.Deserialize<Clan>(content, _jsonOptions);
         }
     }
