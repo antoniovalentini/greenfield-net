@@ -1,4 +1,5 @@
 @page
+@using RazorSample.Pages.Clans.Models
 @model RazorSample.Pages.Clans.Index
 
 @{
@@ -27,14 +28,51 @@
 }
 else
 {
-    <h4>@Model.Clan.Name</h4>
-    <p class="lead">
-        @Model.Clan.Description
-    </p>
+    <div class="text-center">
+        <h4>@Model.Clan.Name</h4>
+        <p class="lead">
+            @Model.Clan.Description
+        </p>
+    </div>
 
-    <ul class="list-group list-group-horizontal">
+    <ul class="list-group list-group-horizontal justify-content-center mb-4">
         <li class="list-group-item">Members: @Model.Clan.Members</li>
         <li class="list-group-item">Score: @Model.Clan.ClanScore</li>
         <li class="list-group-item">Trophies: @Model.Clan.ClanWarTrophies</li>
     </ul>
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Members
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table class="table table-sm">
+                        <thead>
+                        <tr>
+                            <th scope="col">@nameof(ClanMember.Name)</th>
+                            <th scope="col">@nameof(ClanMember.Role)</th>
+                            <th scope="col">@nameof(ClanMember.Trophies)</th>
+                            <th scope="col">@nameof(ClanMember.Donations)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var member in Model.Clan.MemberList)
+                        {
+                            <tr>
+                                <th scope="row">@member.Name</th>
+                                <td>@member.Role</td>
+                                <td>@member.Trophies</td>
+                                <td>@member.Donations</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 }
