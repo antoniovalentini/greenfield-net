@@ -34,8 +34,9 @@ namespace Royale.Sdk.Players
                 ? UrlEncoder.Default.Encode(playerTag)
                 : $"%23{playerTag}";
 
-            var player = await _apiClient.GetAsync<Player>(ApiPath + decodedPlayerTag);
-            _cache.Set(CachePrefix + playerTag, JsonSerializer.Serialize(player));
+            var (player, raw) = await _apiClient.GetAsync<Player>(ApiPath + decodedPlayerTag);
+
+            _cache.Set(CachePrefix + playerTag, raw);
 
             return player;
         }

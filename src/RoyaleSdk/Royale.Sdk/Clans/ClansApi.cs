@@ -32,11 +32,11 @@ namespace Royale.Sdk.Clans
 
             var decodedClanTag = clanTag.StartsWith("#") ? UrlEncoder.Default.Encode(clanTag) : $"%23{clanTag}";
 
-            var clan = await _apiClient.GetAsync<Clan>(ApiPath + decodedClanTag);
+            var (value, raw) = await _apiClient.GetAsync<Clan>(ApiPath + decodedClanTag);
 
-            _cache.Set(CachePrefix + clanTag, JsonSerializer.Serialize(clan, _jsonOptions));
+            _cache.Set(CachePrefix + clanTag, raw);
 
-            return clan;
+            return value;
         }
     }
 }

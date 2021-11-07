@@ -8,7 +8,7 @@ namespace Royale.Sdk
 {
     public interface IApiClient
     {
-        Task<T> GetAsync<T>(string requestUri);
+        Task<ApiResponse<T>> GetAsync<T>(string requestUri);
     }
 
     public class ApiClient : IApiClient
@@ -27,7 +27,7 @@ namespace Royale.Sdk
             }
         }
 
-        public async Task<T> GetAsync<T>(string requestUri)
+        public async Task<ApiResponse<T>> GetAsync<T>(string requestUri)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, requestUri);
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token);
@@ -39,7 +39,9 @@ namespace Royale.Sdk
                 throw new RoyaleSdkNetworkException(content, response.StatusCode);
             }
 
-            return JsonSerializer.Deserialize<T>(content, _jsonOptions);
+            var value = JsonSerializer.Deserialize<T>(content, _jsonOptions);
+
+            return new ApiResponse<T>(value, content);
         }
     }
 }

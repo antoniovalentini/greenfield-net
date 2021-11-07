@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Royale.Sdk.Clans.Models
 {
     public record Clan(string Tag, string Name, string Type, string Description, long BadgeId,
