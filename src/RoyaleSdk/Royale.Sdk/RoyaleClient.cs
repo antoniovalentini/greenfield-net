@@ -12,7 +12,7 @@ namespace Royale.Sdk
         public RoyaleClient(IMemoryCache cache, IApiClient apiClient)
         {
             ClansApi = new ClansApi(cache, apiClient);
-            PlayersApi = new PlayesApi(cache, apiClient);
+            PlayersApi = new PlayersApi(cache, apiClient);
         }
     }
 }

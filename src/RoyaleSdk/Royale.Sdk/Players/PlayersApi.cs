@@ -7,7 +7,7 @@ using Royale.Sdk.Players.Models;
 
 namespace Royale.Sdk.Players
 {
-    public class PlayesApi : IPlayersApi
+    public class PlayersApi : IPlayersApi
     {
         private const string CachePrefix = "PLAYER_";
         private const string ApiPath = "players/";
@@ -15,7 +15,7 @@ namespace Royale.Sdk.Players
         private readonly IApiClient _apiClient;
         private readonly JsonSerializerOptions _jsonOptions = SdkSerializerOptions.JsonOptions;
 
-        public PlayesApi(IMemoryCache cache, IApiClient apiClient)
+        public PlayersApi(IMemoryCache cache, IApiClient apiClient)
         {
             _cache = cache;
             _apiClient = apiClient;
