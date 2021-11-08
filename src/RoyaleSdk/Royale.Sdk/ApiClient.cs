@@ -6,11 +6,6 @@ using Microsoft.Extensions.Configuration;
 
 namespace Royale.Sdk
 {
-    public interface IApiClient
-    {
-        Task<ApiResponse<T>> GetAsync<T>(string requestUri);
-    }
-
     public class ApiClient : IApiClient
     {
         private readonly JsonSerializerOptions _jsonOptions = SdkSerializerOptions.JsonOptions;
