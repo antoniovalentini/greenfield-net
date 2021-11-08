@@ -10,6 +10,7 @@ namespace RazorSample.Pages.Players
         private readonly IRoyaleClient _royaleClient;
 
         public Player Player { get; private set; }
+        public Chest[] UpcomingChests { get; private set; }
         public string Error { get; private set; }
 
         public Details(IRoyaleClient royaleClient)
@@ -27,6 +28,7 @@ namespace RazorSample.Pages.Players
             try
             {
                 Player = await _royaleClient.PlayersApi.GetPlayer(playerTag);
+                UpcomingChests = (await _royaleClient.PlayersApi.GetUpcomingChests(playerTag)).Items;
             }
             catch (RoyaleSdkException ex)
             {
