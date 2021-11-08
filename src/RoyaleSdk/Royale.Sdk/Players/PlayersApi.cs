@@ -40,5 +40,27 @@ namespace Royale.Sdk.Players
 
             return player;
         }
+
+        public async Task<GetUpcomingChestsResponse> GetUpcomingChests(string playerTag)
+        {
+            if (playerTag == null) throw new ArgumentNullException(nameof(playerTag));
+
+            var cacheKey = CachePrefix + playerTag + "chests";
+            if (_cache.TryGetValue(cacheKey, out var cached))
+            {
+                return JsonSerializer.Deserialize<GetUpcomingChestsResponse>((string)cached, _jsonOptions);
+            }
+
+            var decodedPlayerTag = playerTag.StartsWith("#")
+                ? UrlEncoder.Default.Encode(playerTag)
+                : $"%23{playerTag}";
+
+            var requestUri = ApiPath + decodedPlayerTag + "/upcomingchests";
+            var (player, raw) = await _apiClient.GetAsync<GetUpcomingChestsResponse>(requestUri);
+
+            _cache.Set(cacheKey, raw);
+
+            return player;
+        }
     }
 }
