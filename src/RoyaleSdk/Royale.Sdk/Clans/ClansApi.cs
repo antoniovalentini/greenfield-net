@@ -38,5 +38,24 @@ namespace Royale.Sdk.Clans
 
             return value;
         }
+
+        public async Task<GetRiverRaceLogResponse> GetRiverRaceLog(string clanTag)
+        {
+            if (clanTag == null) throw new ArgumentNullException(nameof(clanTag));
+
+            if (_cache.TryGetValue(CachePrefix + clanTag + "_riverracelog", out var cached))
+            {
+                return JsonSerializer.Deserialize<GetRiverRaceLogResponse>((string)cached, _jsonOptions);
+            }
+
+            var decodedClanTag = clanTag.StartsWith("#") ? UrlEncoder.Default.Encode(clanTag) : $"%23{clanTag}";
+
+            var requestUri = ApiPath + decodedClanTag + "/riverracelog";
+            var (value, raw) = await _apiClient.GetAsync<GetRiverRaceLogResponse>(requestUri);
+
+            _cache.Set(CachePrefix + clanTag + "_riverracelog", raw);
+
+            return value;
+        }
     }
 }
