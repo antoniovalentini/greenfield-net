@@ -1,0 +1,22 @@
+﻿@model GrpcService.ViewModels.HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>gRPC</h1>
+
+@if (Model?.Services is { Count: >0 })
+{
+    <p>gRPC services:</p>
+    <ul>
+        @foreach (var service in Model.Services)
+        {
+            <li>@service</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No gRPC services discovered.</p>
+}
+
