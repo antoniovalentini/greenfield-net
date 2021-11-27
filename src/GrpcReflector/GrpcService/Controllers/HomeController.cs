@@ -19,7 +19,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var channel = GrpcChannel.ForAddress("https://localhost:7271");
+        var channel = GrpcChannel.ForAddress("https://localhost:7122");
         var client = new ServerReflection.ServerReflectionClient(channel);
         var response = await SingleRequestAsync(client, new ServerReflectionRequest
         {
