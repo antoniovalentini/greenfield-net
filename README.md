@@ -1,4 +1,4 @@
-# greenfield
+# greenfield-net
 Collection of all my greenfield projects
 
 - [cert-info](https://github.com/antoniovalentini/greenfield-net/tree/main/src/CertInfo): A small utility app to visualize certificates info
