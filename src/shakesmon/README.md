@@ -1,5 +1,5 @@
 # Shakesmon
-[![Build Status](https://travis-ci.com/antoniovalentini/shakesmon.svg?branch=master)](https://travis-ci.com/antoniovalentini/shakesmon)
+[![Build Status](https://app.travis-ci.com/antoniovalentini/shakesmon.svg?token=px3jhDzjeNridjpSbRAh&branch=master)](https://app.travis-ci.com/antoniovalentini/shakesmon)
 
 A simple web app that adds a Shakespeare flavor to pokemon descriptions. It exposes a REST API that, given a Pokemon name, returns its Shakespearean description.
 
