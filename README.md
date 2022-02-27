@@ -11,3 +11,4 @@ Collection of all my greenfield projects
 - [sln-parser](https://github.com/antoniovalentini/greenfield-net/tree/main/src/sln-parser): Small tool to parse and visualize `.NET` solution information
 - [SwissKnife](https://github.com/antoniovalentini/greenfield-net/tree/main/src/Swissknife): Small collection of utilities
 - [TrueLayer Status Page Clone](https://github.com/antoniovalentini/greenfield-net/tree/main/src/TrueLayerStatusPage): Frontend for TrueLayer's status APIs
+- [Shakesmon](https://github.com/antoniovalentini/greenfield-net/tree/main/src/shakesmon): A simple web app that adds a Shakespeare flavor to pokemon descriptions
