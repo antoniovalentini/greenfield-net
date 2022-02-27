@@ -1,0 +1,9 @@
+language: csharp
+mono: none
+solution: Avalentini.Shakesmon.sln
+dotnet: 3.1.300
+script:
+ - cd src
+ - dotnet restore
+ - dotnet build -c Release
+ - dotnet test ./Avalentini.Shakesmon.Core.UnitTests/Avalentini.Shakesmon.Core.UnitTests.csproj
