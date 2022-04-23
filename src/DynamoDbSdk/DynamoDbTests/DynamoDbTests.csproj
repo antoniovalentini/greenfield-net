@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.3.26" />
+      <PackageReference Include="Bogus" Version="34.0.2" />
     </ItemGroup>
 
 </Project>
