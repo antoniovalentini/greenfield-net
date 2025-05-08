@@ -14,7 +14,7 @@ namespace Avalentini.Shakesmon.Core.IntegrationTests.Services.FunTranslations
             _client = new HttpClient();
         }
 
-        [Fact]
+        [Fact(Skip = "Mock the HttpClient")]
         public async Task Translate_ShouldReturnTranslation_WhenSuccess()
         {
             // ARRANGE

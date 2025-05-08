@@ -14,7 +14,7 @@ namespace Avalentini.Shakesmon.Core.IntegrationTests.Services.PokeApi
             _client = new HttpClient();
         }
 
-        [Fact]
+        [Fact(Skip = "Mock the HttpClient")]
         public async Task GetPokemon_ShouldReturnPokemon_WhenSuccess()
         {
             // ARRANGE
@@ -31,7 +31,7 @@ namespace Avalentini.Shakesmon.Core.IntegrationTests.Services.PokeApi
             Assert.False(string.IsNullOrEmpty(result.Pokemon.Id));
         }
 
-        [Fact]
+        [Fact(Skip = "Mock the HttpClient")]
         public async Task GetSpecies_ShouldReturnPokemon_WhenSuccess()
         {
             // ARRANGE
