@@ -20,7 +20,7 @@ namespace Avalentini.Shakesmon.Api.IntegrationTests.Controllers
             _client = factory.CreateClient();
         }
 
-        [Fact]
+        [Fact(Skip = "Mock the HttpClient")]
         public async Task GetOperation_ShouldReturnTranslation()
         {
             // Arrange
@@ -36,7 +36,7 @@ namespace Avalentini.Shakesmon.Api.IntegrationTests.Controllers
             _output.WriteLine(dto.Description);
         }
 
-        [Fact]
+        [Fact(Skip = "Mock the HttpClient")]
         public async Task GetOperation_ShouldReturnMessage_WhenNameNotSpecified()
         {
             // Act
