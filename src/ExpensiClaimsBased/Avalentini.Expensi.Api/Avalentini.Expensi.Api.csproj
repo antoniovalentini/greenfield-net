@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
     <UserSecretsId>cd2a7593-aa69-4179-b038-2c653a87a0a7</UserSecretsId>
     <!--<OpenApiGenerateDocuments>false</OpenApiGenerateDocuments>-->
