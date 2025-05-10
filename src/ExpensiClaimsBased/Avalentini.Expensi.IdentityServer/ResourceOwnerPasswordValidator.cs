@@ -1,8 +1,8 @@
-﻿using IdentityServer4.Validation;
+﻿using Duende.IdentityServer.Validation;
 using System;
 using System.Threading.Tasks;
 using Avalentini.Expensi.IdentityServer.Data.Repository;
-using IdentityServer4.Models;
+using Duende.IdentityServer.Models;
 
 namespace Avalentini.Expensi.IdentityServer
 {

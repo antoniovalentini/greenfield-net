@@ -1,5 +1,5 @@
-﻿using IdentityServer4.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Duende.IdentityServer.Models;
 
 namespace Avalentini.Expensi.IdentityServer
 {
