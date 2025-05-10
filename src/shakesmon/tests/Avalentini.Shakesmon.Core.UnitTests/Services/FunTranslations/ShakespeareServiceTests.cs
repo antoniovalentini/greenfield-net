@@ -30,7 +30,7 @@ namespace Avalentini.Shakesmon.Core.UnitTests.Services.FunTranslations
             Assert.NotNull(result);
             Assert.NotNull(result.Translation);
             Assert.NotNull(result.Translation.Contents);
-            Assert.True(result.Translation.Contents.Translated.Equals(translated));
+            Assert.Equal(translated, result.Translation.Contents.Translated);
         }
 
         [Fact]

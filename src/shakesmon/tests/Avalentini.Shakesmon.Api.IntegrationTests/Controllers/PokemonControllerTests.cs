@@ -32,7 +32,7 @@ namespace Avalentini.Shakesmon.Api.IntegrationTests.Controllers
             // Assert
             response.EnsureSuccessStatusCode();
             var dto = JsonConvert.DeserializeObject<GetDto>(await response.Content.ReadAsStringAsync());
-            Assert.True(dto.Name.Equals(pokemonName));
+            Assert.Equal(pokemonName, dto.Name);
             _output.WriteLine(dto.Description);
         }
 
@@ -45,7 +45,7 @@ namespace Avalentini.Shakesmon.Api.IntegrationTests.Controllers
             // Assert
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
-            Assert.True(content.Equals(PokemonController.ProvidePokemonNameMessage));
+            Assert.Equal(PokemonController.ProvidePokemonNameMessage, content);
         }
     }
 }
