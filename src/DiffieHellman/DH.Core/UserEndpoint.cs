@@ -7,25 +7,30 @@ namespace DH.Core
 {
     public class UserEndpoint : IDisposable
     {
-        public byte[] PublicKey;
+        public readonly ECDiffieHellmanPublicKey PublicKey;
+        private readonly ECDiffieHellman _dh;
+
         private byte[] _exchangeKey;
-        private readonly ECDiffieHellmanCng _dh;
+
         public bool KeyExchanged { get; private set; }
 
-        public UserEndpoint(string name)
+        public UserEndpoint()
         {
-            _dh = new ECDiffieHellmanCng
-            {
-                KeyDerivationFunction = ECDiffieHellmanKeyDerivationFunction.Hash,
-                HashAlgorithm = CngAlgorithm.Sha256
-            };
-            PublicKey = _dh.PublicKey.ToByteArray();
+            _dh = ECDiffieHellman.Create();
+            PublicKey = _dh.PublicKey;
+        }
+
+        public void CalculateExchangeKey(ECDiffieHellmanPublicKey otherPublicKey)
+        {
+            _exchangeKey = _dh.DeriveKeyFromHash(otherPublicKey, HashAlgorithmName.SHA256);
+            KeyExchanged = true;
         }
 
         public void CalculateExchangeKey(byte[] otherPublicKey)
         {
-            _exchangeKey = _dh.DeriveKeyMaterial(CngKey.Import(otherPublicKey, CngKeyBlobFormat.EccPublicBlob));
-            KeyExchanged = true;
+            using var dh2 = ECDiffieHellman.Create();
+            dh2.ImportSubjectPublicKeyInfo(otherPublicKey, out _);
+            CalculateExchangeKey(dh2.PublicKey);
         }
 
         public void Send(string secretMessage, out byte[] encryptedMessage, out byte[] iv)

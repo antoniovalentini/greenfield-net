@@ -8,8 +8,8 @@ internal static class Program
     private static void Main(string[] args)
     {
         Console.WriteLine("Hello World!");
-        var alice = new UserEndpoint("alice");
-        var bob = new UserEndpoint("bob");
+        var alice = new UserEndpoint();
+        var bob = new UserEndpoint();
         alice.CalculateExchangeKey(bob.PublicKey);
         bob.CalculateExchangeKey(alice.PublicKey);
 

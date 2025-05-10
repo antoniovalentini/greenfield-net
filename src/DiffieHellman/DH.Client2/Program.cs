@@ -26,7 +26,7 @@ namespace DH.Client2
 
             await connection.StartAsync();
 
-            var me = new UserEndpoint(Username);
+            var me = new UserEndpoint();
             connection.On("ExchangeKey",
                 (string user, byte[] publickey) =>
                 {

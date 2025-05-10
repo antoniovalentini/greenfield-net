@@ -26,7 +26,7 @@ namespace DH.Client1
 
             await connection.StartAsync();
 
-            var me = new UserEndpoint(Username);
+            var me = new UserEndpoint();
             connection.On("ExchangeKey",
                 (string user, byte[] publickey) =>
                 {
@@ -44,7 +44,7 @@ namespace DH.Client1
 
             Thread.Sleep(2000);
             await connection.InvokeAsync("ExchangeKey", Username, me.PublicKey);
-            
+
             while (!_cancelled)
             {
                 var mes = Console.ReadLine();
