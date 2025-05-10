@@ -3,5 +3,5 @@
 public class HomeViewModel
 {
     public List<string>? Services { get; set; }
-    public string Descriptor { get; set; }
+    public string? Descriptor { get; set; }
 }

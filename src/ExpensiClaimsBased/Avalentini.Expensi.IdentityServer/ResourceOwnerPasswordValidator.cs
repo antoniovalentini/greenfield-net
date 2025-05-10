@@ -29,19 +29,18 @@ namespace Avalentini.Expensi.IdentityServer
                         //set the result
                         context.Result = new GrantValidationResult(
                             subject: user.Id.ToString(),
-                            authenticationMethod: "custom", 
+                            authenticationMethod: "custom",
                             claims: ProfileService.GetUserClaims(user));
 
                         return;
-                    } 
+                    }
 
                     context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, "Incorrect password");
                     return;
                 }
                 context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, "User does not exist.");
-                return;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, "Invalid username or password");
             }
