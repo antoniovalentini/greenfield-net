@@ -33,10 +33,8 @@ namespace DH.Core
             if (_exchangeKey == null)
                 throw new ArgumentNullException(nameof(_exchangeKey));
 
-            using Aes aes = new AesCryptoServiceProvider
-            {
-                Key = _exchangeKey
-            };
+            using var aes = Aes.Create();
+            aes.Key = _exchangeKey;
             iv = aes.IV;
 
             // Encrypt the message
@@ -53,11 +51,9 @@ namespace DH.Core
             if (_exchangeKey == null)
                 throw new ArgumentNullException(nameof(_exchangeKey));
 
-            using Aes aes = new AesCryptoServiceProvider
-            {
-                Key = _exchangeKey,
-                IV = iv
-            };
+            using var aes = Aes.Create();
+            aes.Key = _exchangeKey;
+            aes.IV = iv;
 
             // Decrypt the message
             using var plaintext = new MemoryStream();
