@@ -90,7 +90,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General Items", "General Items", "{B4FF918A-CA2F-49A9-B90E-B45AD45C2F9F}"
 	ProjectSection(SolutionItems) = preProject
 		src\shakesmon\.dockerignore = src\shakesmon\.dockerignore
-		src\shakesmon\.travis.yml = src\shakesmon\.travis.yml
 		src\shakesmon\Dockerfile = src\shakesmon\Dockerfile
 		src\shakesmon\README.md = src\shakesmon\README.md
 	EndProjectSection
