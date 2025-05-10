@@ -35,6 +35,8 @@ namespace Avalentini.Expensi.Api
             services.AddMongoDbCollection<ExpensesPerUser>(connString,
                 "expensi", "expenses");
 
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
             services.AddAutoMapper(cfg =>
             {
                 cfg.CreateMap<ExpenseMongoEntity, Expense>()
@@ -83,14 +85,14 @@ namespace Avalentini.Expensi.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            
+
             app.ConfigureExceptionHandler(Logger);
 
             //TODO: remember to fix this in release
@@ -99,7 +101,6 @@ namespace Avalentini.Expensi.Api
                 .AllowAnyHeader());
 
             app.UseAuthentication();
-            app.UseAuthorization();
             app.UseHttpsRedirection();
 
             app.UseSwagger();
@@ -109,6 +110,7 @@ namespace Avalentini.Expensi.Api
             });
 
             app.UseRouting();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
